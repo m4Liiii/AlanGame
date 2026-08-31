@@ -35,12 +35,14 @@ test("server-renders the game shell", async () => {
 });
 
 test("ships one complete offline game file", async () => {
-  const [standalone, hostedCopy] = await Promise.all([
+  const [standalone, hostedCopy, vercelEntry] = await Promise.all([
     readFile(new URL("../index.html", import.meta.url), "utf8"),
     readFile(new URL("../public/game.html", import.meta.url), "utf8"),
+    readFile(new URL("../public/index.html", import.meta.url), "utf8"),
   ]);
 
   assert.equal(hostedCopy, standalone);
+  assert.equal(vercelEntry, standalone);
   assert.match(standalone, /<style>[\s\S]+<\/style>/i);
   assert.match(standalone, /<script>[\s\S]+<\/script>/i);
   assert.doesNotMatch(standalone, /(?:src|href)=["']https?:/i);
