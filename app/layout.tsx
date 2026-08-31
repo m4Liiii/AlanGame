@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Cyber Crime: Find the Intruder",
   description:
-    "A three-minute interactive Tishk University cybersecurity investigation game.",
+    "A simple three-minute cybersecurity clue game for Tishk University students.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

@@ -236,7 +236,7 @@
     .tab-icon { display: block; font-size: 1.1rem; margin-bottom: 5px; }
 
     .evidence-body { min-height: 630px; padding: clamp(20px, 3.3vw, 38px); position: relative; }
-    .evidence-body::before { content: "EVIDENCE // AUTHORIZED VIEW"; position: absolute; top: 13px; right: 18px; color: rgba(255,255,255,.05); font: 700 .62rem monospace; letter-spacing: .12em; }
+    .evidence-body::before { content: "CLUES // OPEN"; position: absolute; top: 13px; right: 18px; color: rgba(255,255,255,.05); font: 700 .62rem monospace; letter-spacing: .12em; }
     .section-enter { animation: riseIn .35s ease both; }
     .eyebrow { color: var(--green); font-size: .68rem; font-weight: 900; }
     .evidence-body h2 { margin: 8px 0 10px; font-size: clamp(1.6rem, 3vw, 2.5rem); letter-spacing: -.04em; }
@@ -413,26 +413,26 @@
       </header>
       <div class="opening-body">
         <div class="sun-mark" aria-hidden="true"></div>
-        <div class="alert-label">● Unauthorized access detected</div>
+        <div class="alert-label">● Someone opened private files</div>
         <h1 id="game-title">Cyber Crime <span>Find the Intruder</span></h1>
-        <p class="opening-copy">Confidential Tishk University files were opened without permission. Four people are connected to the incident. One is the intruder.</p>
+        <p class="opening-copy">Someone opened private Tishk University files without permission. Four people were at the university. One person did it.</p>
         <div class="mission-facts" aria-label="Mission details">
           <span>4 suspects</span><span>1 intruder</span><span>3 minutes</span><span>Who + when</span>
         </div>
-        <button id="startBtn" class="primary-btn red">Start investigation →</button>
-        <div class="opening-note">No cybersecurity knowledge needed. Observe. Compare. Decide.</div>
+        <button id="startBtn" class="primary-btn red">Start the case →</button>
+        <div class="opening-note">You do not need to know cybersecurity. Look. Compare. Choose.</div>
       </div>
     </section>
   </main>
 
-  <main id="game" class="screen game hidden" aria-label="Investigation dashboard">
+  <main id="game" class="screen game hidden" aria-label="Game screen">
     <header class="game-header">
       <div class="case-title">
         <div class="mini-sun" aria-hidden="true"></div>
-        <div><div class="case-tag">Security incident</div><div class="case-name">Case #047 — The Silent Login</div></div>
+        <div><div class="case-tag">Security alert</div><div class="case-name">Case #047 — The Secret Login</div></div>
       </div>
       <div class="progress-wrap">
-        <div id="progressLabel" class="progress-label">Evidence reviewed 0 / 5</div>
+        <div id="progressLabel" class="progress-label">Clues checked 0 / 5</div>
         <div class="progress-track"><div id="progressFill" class="progress-fill"></div></div>
       </div>
       <div class="timer-wrap"><div class="timer-label">Time remaining</div><div id="timer" class="timer" aria-live="off">03:00</div></div>
@@ -440,38 +440,38 @@
 
     <div class="workspace">
       <aside class="panel suspects-panel">
-        <div class="panel-heading"><h2>Four suspects</h2><span class="panel-number">04</span></div>
+        <div class="panel-heading"><h2>Four people</h2><span class="panel-number">04</span></div>
         <div id="suspectList" class="suspect-list"></div>
         <div class="decision-card">
           <small>Ready to decide?</small>
-          <p>Choose the intruder and the exact time of access.</p>
-          <button class="primary-btn green open-decision">Final decision →</button>
+          <p>Choose who did it and what time it happened.</p>
+          <button class="primary-btn green open-decision">Give my answer →</button>
         </div>
       </aside>
 
       <section class="panel evidence-panel">
-        <nav id="evidenceNav" class="evidence-nav" aria-label="Evidence categories"></nav>
+        <nav id="evidenceNav" class="evidence-nav" aria-label="Clue sections"></nav>
         <div id="evidenceBody" class="evidence-body" aria-live="polite"></div>
       </section>
 
       <aside class="panel notes-panel">
         <div class="panel-heading"><h2>Clue board</h2><span id="clueCount" class="panel-number">0 / 4</span></div>
         <div id="notesList" class="notes-list"></div>
-        <div class="thinking-tip"><strong>Investigator tip</strong><p id="thinkingTip">Start with the computer activity. Find the exact incident time.</p></div>
+        <div class="thinking-tip"><strong>Helpful tip</strong><p id="thinkingTip">Start with the computer activity. Find the time when the files opened.</p></div>
       </aside>
     </div>
   </main>
 
   <div id="decisionModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="decisionTitle">
     <section class="modal">
-      <header class="modal-top"><strong>Final investigation</strong><button class="close-btn" data-close="decisionModal" aria-label="Close">×</button></header>
+      <header class="modal-top"><strong>Your final answer</strong><button class="close-btn" data-close="decisionModal" aria-label="Close">×</button></header>
       <div class="modal-body">
-        <div class="eyebrow">Submit your theory</div>
-        <h2 id="decisionTitle">Who + when?</h2>
-        <p class="modal-intro">Use the records, locations, messages and timeline. Both answers must be correct.</p>
-        <div class="answer-step"><h3>01 — Who is the intruder?</h3><div id="whoOptions" class="answer-grid"></div></div>
+        <div class="eyebrow">Choose two answers</div>
+        <h2 id="decisionTitle">Who did it? When?</h2>
+        <p class="modal-intro">Check the computer activity, places, messages and times. Both answers must be right.</p>
+        <div class="answer-step"><h3>01 — Who opened the files?</h3><div id="whoOptions" class="answer-grid"></div></div>
         <div class="answer-step"><h3>02 — When were the files opened?</h3><div id="whenOptions" class="answer-grid"></div></div>
-        <div class="solve-row"><span id="answerStatus" class="answer-status">Select two answers to solve the case.</span><button id="solveBtn" class="primary-btn red">Solve case</button></div>
+        <div class="solve-row"><span id="answerStatus" class="answer-status">Choose one person and one time.</span><button id="solveBtn" class="primary-btn red">Check my answer</button></div>
       </div>
     </section>
   </div>
@@ -482,25 +482,25 @@
 
   <script>
     const suspects = [
-      { id:'aram', letter:'A', name:'Aram Barzani', role:'Computer Science Student', color:'red', statement:'“I stayed in the library until I borrowed a book at 08:45.”', location:'Library, north wing', access:'Student account only', detail:'Quiet and focused. His library activity can be checked.' },
-      { id:'dara', letter:'D', name:'Dara Hasan', role:'Student Event Volunteer', color:'gold', statement:'“I left the university through the east gate at 08:30.”', location:'Says she was already home', access:'Temporary Lab 4 badge', detail:'Helped prepare the event and returned equipment to Lab 4.' },
-      { id:'ronak', letter:'R', name:'Ronak Karim', role:'University Lab Assistant', color:'green', statement:'“I was fixing the auditorium projector before I left.”', location:'Auditorium tech desk', access:'All computer labs', detail:'Has wide access and sent a message about a “file transfer.”' },
-      { id:'shiler', letter:'S', name:'Shiler Ahmed', role:'Design Student', color:'white', statement:'“I bought tea, then waited near the main hall.”', location:'Cafeteria and main hall', access:'No lab access', detail:'Was waiting for a friend after a design club meeting.' }
+      { id:'aram', letter:'A', name:'Aram Barzani', role:'Computer Student', color:'red', statement:'“I was in the library. I took a book at 08:45.”', location:'Library, north side', access:'Student account only', detail:'We can check his library records.' },
+      { id:'dara', letter:'D', name:'Dara Hasan', role:'Event Helper', color:'gold', statement:'“I left the university at 08:30.”', location:'Says she was at home', access:'Lab 4 door card', detail:'She helped with the event. She took equipment back to Lab 4.' },
+      { id:'ronak', letter:'R', name:'Ronak Karim', role:'Computer Lab Helper', color:'green', statement:'“I fixed the big screen before I left.”', location:'Main hall computer desk', access:'All computer labs', detail:'He can enter every lab. He sent a message about moving files.' },
+      { id:'shiler', letter:'S', name:'Shiler Ahmed', role:'Design Student', color:'white', statement:'“I bought tea. Then I waited near the main hall.”', location:'Cafeteria and main hall', access:'Cannot enter the labs', detail:'She waited for a friend after a student club meeting.' }
     ];
 
     const tabs = [
       { id:'suspects', icon:'●', label:'Suspects' },
       { id:'logs', icon:'▤', label:'Activity' },
       { id:'messages', icon:'◆', label:'Messages' },
-      { id:'locations', icon:'⌖', label:'Locations' },
+      { id:'locations', icon:'⌖', label:'Places' },
       { id:'timeline', icon:'◷', label:'Timeline' }
     ];
 
     const clues = {
-      logs: { title:'Exact incident time', text:'The confidential folder was opened at 08:43 on the Lab 4 computer.' },
-      messages: { title:'A message explained', text:'Ronak’s “transfer” was for presentation files, confirmed by a professor.' },
-      locations: { title:'A statement does not match', text:'Dara said she left at 08:30, but her badge opened Lab 4 at 08:41.' },
-      timeline: { title:'The window closes', text:'Three alibis match records. Dara stayed inside until 08:46.' }
+      logs: { title:'Time of the crime', text:'The private folder opened at 08:43 on the Lab 4 computer.' },
+      messages: { title:'Ronak explained his message', text:'Ronak moved class files for a teacher. The teacher says this is true.' },
+      locations: { title:'Dara’s words do not match', text:'Dara said she left at 08:30. Her door card opened Lab 4 at 08:41.' },
+      timeline: { title:'Three people have proof', text:'Aram, Ronak and Shiler were in other places. Dara left at 08:46.' }
     };
 
     let activeTab = 'suspects';
@@ -527,7 +527,7 @@
         activeSuspect = btn.dataset.suspect;
         renderSuspectList();
         openTab('suspects', true);
-        showToast('Suspect under investigation', '');
+        showToast('Checking this person', '');
       }));
     }
 
@@ -546,7 +546,7 @@
       renderNav();
       renderEvidence();
       updateProgress();
-      if (firstView && !quiet) showToast(id === 'suspects' ? 'Case files unlocked' : id === 'timeline' ? 'Timeline reconstructed' : 'Evidence unlocked', id === 'logs' ? 'red' : '');
+      if (firstView && !quiet) showToast(id === 'suspects' ? 'People are ready to check' : id === 'timeline' ? 'Times are ready' : 'New clue opened', id === 'logs' ? 'red' : '');
     }
 
     function renderEvidence() {
@@ -554,62 +554,62 @@
       if (activeTab === 'suspects') {
         const s = suspects.find(x => x.id === activeSuspect);
         body.innerHTML = `<div class="section-enter">
-          <div class="eyebrow">Person of interest // ${s.letter}-0${suspects.indexOf(s)+1}</div>
-          <h2>Suspect profile</h2>
-          <p class="lead">Read the statement. Then check if the other evidence supports it.</p>
+          <div class="eyebrow">Suspect // ${s.letter}-0${suspects.indexOf(s)+1}</div>
+          <h2>About this person</h2>
+          <p class="lead">Read what this person says. Then check if the other clues agree.</p>
           <div class="profile-main">
             <div class="profile-avatar avatar ${s.color}">${s.letter}</div>
             <div><h3>${s.name}</h3><div class="role">${s.role}</div><p class="statement">${s.statement}</p></div>
           </div>
           <div class="detail-grid">
-            <div class="detail"><small>Claimed location</small><strong>${s.location}</strong></div>
-            <div class="detail"><small>University access</small><strong>${s.access}</strong></div>
-            <div class="detail" style="grid-column:1/-1"><small>Investigation note</small><strong>${s.detail}</strong></div>
+            <div class="detail"><small>Says they were here</small><strong>${s.location}</strong></div>
+            <div class="detail"><small>Places they can enter</small><strong>${s.access}</strong></div>
+            <div class="detail" style="grid-column:1/-1"><small>What we know</small><strong>${s.detail}</strong></div>
           </div>
-          <div class="tip"><strong>Investigator tip</strong>A statement is only a claim. Look for a separate record that confirms it.</div>
+          <div class="tip"><strong>Helpful tip</strong>Do not believe words alone. Find another clue that shows the same thing.</div>
         </div>`;
       } else if (activeTab === 'logs') {
-        body.innerHTML = `<div class="section-enter"><div class="eyebrow">Computer record // Lab 4</div><h2>System activity</h2><p class="lead">This record shows what happened on the computer and when it happened.</p>
+        body.innerHTML = `<div class="section-enter"><div class="eyebrow">Lab 4 computer</div><h2>Computer activity</h2><p class="lead">This list shows what happened on the computer. It also shows the time.</p>
           <div class="log-list">
             ${logRow('08:39','Normal activity','Screen active','Normal')}
-            ${logRow('08:41','Guest login','Lab-PC-04','Review')}
-            ${logRow('08:42','Records page opened','Tishk University portal','Review')}
-            ${logRow('08:43','Confidential folder opened','Restricted files','Alert',true)}
-            ${logRow('08:44','Three files copied','Student records','Alert',true)}
-            ${logRow('08:45','Session closed','Lab-PC-04','Ended')}
-          </div><div class="tip"><strong>New clue</strong>The unauthorized access happened when the confidential folder opened. Remember that exact time.</div></div>`;
+            ${logRow('08:41','Someone logged in','Lab 4 computer','Check')}
+            ${logRow('08:42','School page opened','Tishk University page','Check')}
+            ${logRow('08:43','Private folder opened','Private files','Alert',true)}
+            ${logRow('08:44','Three files copied','Student files','Alert',true)}
+            ${logRow('08:45','Computer closed','Lab 4 computer','Ended')}
+          </div><div class="tip"><strong>New clue</strong>The crime happened when the private folder opened. Remember the time.</div></div>`;
       } else if (activeTab === 'messages') {
-        body.innerHTML = `<div class="section-enter"><div class="eyebrow">Recovered conversations</div><h2>Messages</h2><p class="lead">Some messages look suspicious. Read the full conversation before deciding.</p>
+        body.innerHTML = `<div class="section-enter"><div class="eyebrow">Phone messages</div><h2>Messages</h2><p class="lead">Some messages look strange. Read all the messages before you choose.</p>
           <div class="messages">
             <div class="message-thread"><div class="thread-label">Dara ↔ Shiler</div>
               <div class="bubble"><time>08:29 — Dara</time>I’m leaving now. I’ll be home soon.</div>
               <div class="bubble right suspicious"><time>08:40 — Dara</time>Made it home. How is the event?</div>
             </div>
             <div class="message-thread"><div class="thread-label">Ronak ↔ Professor Aso</div>
-              <div class="bubble suspicious"><time>08:38 — Ronak</time>The door is open. I’ll finish the file transfer now.</div>
-              <div class="bubble right"><time>08:40 — Professor Aso</time><b>Thank you.</b> Move my presentation files to the auditorium computer. Call me when the screen is ready.</div>
-              <div class="bubble"><time>08:48 — Ronak</time>Projector fixed. Our video call ended. I’m leaving.</div>
+              <div class="bubble suspicious"><time>08:38 — Ronak</time>The door is open. I will move the files now.</div>
+              <div class="bubble right"><time>08:40 — Professor Aso</time><b>Thank you.</b> Move my class files to the main hall computer. Call me when the big screen works.</div>
+              <div class="bubble"><time>08:48 — Ronak</time>The screen works now. Our video call is over. I am leaving.</div>
             </div>
-          </div><div class="tip"><strong>Investigator tip</strong>Suspicious words are not proof. Context can change their meaning.</div></div>`;
+          </div><div class="tip"><strong>Helpful tip</strong>Strange words do not mean a person is guilty. Read the full message.</div></div>`;
       } else if (activeTab === 'locations') {
-        body.innerHTML = `<div class="section-enter"><div class="eyebrow">Verified places // 08:41–08:46</div><h2>Where was everyone?</h2><p class="lead">These records come from doors, receipts and a live call.</p>
+        body.innerHTML = `<div class="section-enter"><div class="eyebrow">Places // 08:41–08:46</div><h2>Where was each person?</h2><p class="lead">Door cards, shop papers and a video call show these places.</p>
           <div class="location-list">
-            ${locationRow('08:42','Aram','Library','Desk scan; book borrowed at 08:45')}
-            ${locationRow('08:41','Dara','Lab 4 door','Temporary badge opened the door')}
+            ${locationRow('08:42','Aram','Library','Library check; he took a book at 08:45')}
+            ${locationRow('08:41','Dara','Lab 4 door','Her door card opened the door')}
             ${locationRow('08:43','Ronak','Auditorium','Live video call, 08:41–08:48')}
-            ${locationRow('08:42','Shiler','Cafeteria','Tea receipt; main hall photo at 08:44')}
-            ${locationRow('08:46','Dara','East gate','Her badge finally recorded an exit')}
-          </div><div class="tip"><strong>New clue</strong>One person’s statement says 08:30, but their badge tells a different story.</div></div>`;
+            ${locationRow('08:42','Shiler','Cafeteria','Tea paper; main hall photo at 08:44')}
+            ${locationRow('08:46','Dara','East gate','Her door card shows she left now')}
+          </div><div class="tip"><strong>New clue</strong>One person says 08:30. Their door card shows a different time.</div></div>`;
       } else {
-        body.innerHTML = `<div class="section-enter"><div class="eyebrow">Case reconstruction</div><h2>Incident timeline</h2><p class="lead">Put the words and records together. Who could be at Lab 4?</p>
+        body.innerHTML = `<div class="section-enter"><div class="eyebrow">All important times</div><h2>What happened?</h2><p class="lead">Put the words and clues together. Who could be in Lab 4?</p>
           <div class="timeline-list">
             ${timelineRow('08:29','Dara messages: “I’m leaving now.”')}
             ${timelineRow('08:40','Dara messages: “Made it home.”')}
-            ${timelineRow('08:41','Dara’s temporary badge opens Lab 4.')}
-            ${timelineRow('08:43','Confidential folder opens on the Lab 4 computer.',true)}
-            ${timelineRow('08:44','Aram, Ronak and Shiler each have a matching record elsewhere.')}
-            ${timelineRow('08:46','Dara’s badge exits through the east gate.')}
-          </div><div class="tip"><strong>Connect the evidence</strong>Time + location + statement. The intruder’s story is the only one that breaks.</div></div>`;
+            ${timelineRow('08:41','Dara’s door card opens Lab 4.')}
+            ${timelineRow('08:43','The private folder opens on the Lab 4 computer.',true)}
+            ${timelineRow('08:44','Clues show Aram, Ronak and Shiler were in other places.')}
+            ${timelineRow('08:46','Dara’s door card shows she leaves by the east gate.')}
+          </div><div class="tip"><strong>Put the clues together</strong>Check the time, the place and the person’s words. One story is not true.</div></div>`;
       }
     }
 
@@ -619,14 +619,14 @@
 
     function updateProgress() {
       const count = seen.size;
-      $('progressLabel').textContent = `Evidence reviewed ${count} / 5`;
+      $('progressLabel').textContent = `Clues checked ${count} / 5`;
       $('progressFill').style.width = `${count * 20}%`;
       const unlocked = ['logs','messages','locations','timeline'].filter(id => seen.has(id));
       $('clueCount').textContent = `${unlocked.length} / 4`;
       $('notesList').innerHTML = ['logs','messages','locations','timeline'].map((id,i) => seen.has(id)
         ? `<div class="note-card unlocked"><span>Clue 0${i+1}</span><p><b>${clues[id].title}:</b> ${clues[id].text}</p></div>`
-        : `<div class="note-card locked">Evidence locked</div>`).join('');
-      const tipByCount = ['Start with the computer activity. Find the exact incident time.','Good start. Now check where each suspect was.','Look for a statement that does not match a record.','A suspicious message may have an innocent explanation.','You have enough evidence. Make your final decision.'];
+        : `<div class="note-card locked">Clue not opened</div>`).join('');
+      const tipByCount = ['Start with Computer Activity. Find when the files opened.','Good. Now check where each person was.','Find words that do not match a clue.','A strange message may have a good reason.','You checked all the clues. Give your answer.'];
       $('thinkingTip').textContent = tipByCount[Math.min(unlocked.length, 4)];
     }
 
@@ -639,7 +639,7 @@
       clearInterval(timerId);
       timerId = setInterval(tick, 1000);
       setTimeout(() => openTab('suspects'), 250);
-      showToast('Investigation started — 3 minutes', 'red');
+      showToast('The case started — 3 minutes', 'red');
     }
 
     function tick() {
@@ -676,7 +676,7 @@
 
     function updateAnswerStatus() {
       const ready = selectedWho && selectedWhen;
-      $('answerStatus').textContent = ready ? 'Theory ready. Submit when you are certain.' : 'Select two answers to solve the case.';
+      $('answerStatus').textContent = ready ? 'Your answers are ready.' : 'Choose one person and one time.';
       $('solveBtn').disabled = !ready;
       $('solveBtn').style.opacity = ready ? '1' : '.45';
     }
@@ -693,15 +693,15 @@
     function showResult(correct) {
       const result = $('resultModal');
       if (correct) {
-        const profile = seen.size === 5 ? 'Logic Analyst' : 'Evidence Hunter';
+        const profile = seen.size === 5 ? 'Clue Expert' : 'Clue Finder';
         result.innerHTML = `<section class="modal result-modal"><div class="modal-body">
           <div class="result-icon win">✓</div><div class="result-kicker">Case solved</div><h2 id="resultTitle">You found the intruder!</h2>
-          <p class="modal-intro">Dara said she left at 08:30. Her badge opened Lab 4 at 08:41, the files opened at 08:43, and she did not exit until 08:46.</p>
-          <div class="result-summary"><div class="result-stat"><small>Intruder identified</small><strong>Dara Hasan</strong></div><div class="result-stat"><small>Unauthorized access</small><strong>08:43</strong></div></div>
-          <div class="logic-chain"><span>Activity</span><b>→</b><span>Location</span><b>→</b><span>Messages</span><b>→</b><span>Timeline</span><b>→</b><span>Intruder</span></div>
-          <div class="profile-badge"><small>Your cyber profile</small><h3>${profile}</h3><p>You connect small clues and notice when a story does not match the evidence.</p></div>
+          <p class="modal-intro">Dara said she left at 08:30. But her door card opened Lab 4 at 08:41. The private files opened at 08:43. She left at 08:46.</p>
+          <div class="result-summary"><div class="result-stat"><small>Person who did it</small><strong>Dara Hasan</strong></div><div class="result-stat"><small>Time the files opened</small><strong>08:43</strong></div></div>
+          <div class="logic-chain"><span>Computer</span><b>→</b><span>Place</span><b>→</b><span>Messages</span><b>→</b><span>Time</span><b>→</b><span>Answer</span></div>
+          <div class="profile-badge"><small>Your cyber profile</small><h3>${profile}</h3><p>You find small clues. You know when a story does not match the clues.</p></div>
           <div class="alert-label" style="border-color:rgba(245,189,52,.34);color:var(--gold);margin-bottom:20px">🎁 You earned a prize!</div>
-          <div class="result-actions"><button class="primary-btn green" id="learnBtn">Explore cybersecurity →</button><button class="secondary-btn" id="playAgainBtn">Play again</button></div>
+          <div class="result-actions"><button class="primary-btn green" id="learnBtn">Learn about cybersecurity →</button><button class="secondary-btn" id="playAgainBtn">Play again</button></div>
         </div></section>`;
         result.classList.remove('hidden');
         $('learnBtn').addEventListener('click', showDepartment);
@@ -711,20 +711,20 @@
         const whoMatch = selectedWho === 'dara';
         const timeMatch = selectedWhen === '08:43';
         result.innerHTML = `<section class="modal result-modal"><div class="modal-body">
-          <div class="result-icon lose">!</div><div class="result-kicker" style="color:#ff8791">Case unresolved</div><h2 id="resultTitle">The intruder escaped</h2>
-          <p class="modal-intro">You missed an important clue. That happens to every investigator. Check the exact incident time and the statement that does not match a location record.</p>
-          <div class="result-summary"><div class="result-stat"><small>Your suspect</small><strong>${whoMatch?'Fits the evidence':'Needs another look'}</strong></div><div class="result-stat"><small>Your time</small><strong>${timeMatch?'Matches the record':'Needs another look'}</strong></div></div>
-          <div class="tip" style="text-align:left"><strong>Investigator tip</strong>Open Activity, then Locations. Ask: who could be near Lab 4 at that exact minute?</div>
-          <div class="result-actions" style="margin-top:22px"><button class="primary-btn red" id="tryAgainBtn">Return to evidence</button><button class="secondary-btn" id="restartBtn">Restart case</button></div>
+          <div class="result-icon lose">!</div><div class="result-kicker" style="color:#ff8791">Try again</div><h2 id="resultTitle">The answer is not right</h2>
+          <p class="modal-intro">You missed one clue. That is okay. Check the time when the files opened. Then check where each person was.</p>
+          <div class="result-summary"><div class="result-stat"><small>Your person</small><strong>${whoMatch?'This part is right':'Check again'}</strong></div><div class="result-stat"><small>Your time</small><strong>${timeMatch?'This part is right':'Check again'}</strong></div></div>
+          <div class="tip" style="text-align:left"><strong>Helpful tip</strong>Open Computer Activity. Then open Places. Who was near Lab 4 at that time?</div>
+          <div class="result-actions" style="margin-top:22px"><button class="primary-btn red" id="tryAgainBtn">Check the clues again</button><button class="secondary-btn" id="restartBtn">Start again</button></div>
         </div></section>`;
         result.classList.remove('hidden');
-        $('tryAgainBtn').addEventListener('click', () => { result.classList.add('hidden'); secondsLeft=Math.max(secondsLeft,45); updateTimer(); running=true; timerId=setInterval(tick,1000); selectedWho=''; selectedWhen=''; openTab('logs',true); showToast('45 seconds secured — try again','red'); });
+        $('tryAgainBtn').addEventListener('click', () => { result.classList.add('hidden'); secondsLeft=Math.max(secondsLeft,45); updateTimer(); running=true; timerId=setInterval(tick,1000); selectedWho=''; selectedWhen=''; openTab('logs',true); showToast('You have 45 seconds — try again','red'); });
         $('restartBtn').addEventListener('click', () => { result.classList.add('hidden'); startGame(); });
       }
     }
 
     function showTimeout() {
-      $('timeoutModal').innerHTML = `<section class="modal result-modal"><div class="modal-body"><div class="result-icon lose">00</div><div class="result-kicker" style="color:#ff8791">Time expired</div><h2 id="timeoutTitle">Investigation paused</h2><p class="modal-intro">A real investigator still makes a careful decision. Submit your theory now, or restart with a fresh three minutes.</p><div class="result-actions"><button class="primary-btn red" id="decideNowBtn">Make final decision</button><button class="secondary-btn" id="freshStartBtn">Restart</button></div></div></section>`;
+      $('timeoutModal').innerHTML = `<section class="modal result-modal"><div class="modal-body"><div class="result-icon lose">00</div><div class="result-kicker" style="color:#ff8791">Time is over</div><h2 id="timeoutTitle">Stop and choose</h2><p class="modal-intro">You can give your answer now. Or you can start again with three minutes.</p><div class="result-actions"><button class="primary-btn red" id="decideNowBtn">Give my answer</button><button class="secondary-btn" id="freshStartBtn">Start again</button></div></div></section>`;
       $('timeoutModal').classList.remove('hidden');
       $('decideNowBtn').addEventListener('click', () => { $('timeoutModal').classList.add('hidden'); openDecision(); });
       $('freshStartBtn').addEventListener('click', () => { $('timeoutModal').classList.add('hidden'); startGame(); });
@@ -732,15 +732,15 @@
 
     function showDepartment() {
       $('resultModal').classList.add('hidden');
-      $('departmentModal').innerHTML = `<section class="modal department"><div class="department-hero"><div class="eyebrow">You just experienced cybersecurity</div><h2 id="departmentTitle">Maybe this is your future.</h2><p>You investigated evidence, found suspicious activity and connected information to identify a threat. That is a small part of cybersecurity.</p></div>
+      $('departmentModal').innerHTML = `<section class="modal department"><div class="department-hero"><div class="eyebrow">You just tried cybersecurity</div><h2 id="departmentTitle">Maybe this can be your future.</h2><p>You checked clues. You found strange activity. You used the clues to find a danger. This is one small part of cybersecurity.</p></div>
         <div class="department-grid">
-          <div class="study-area"><b>🛡 Network Security</b><span>Protect connected systems.</span></div>
-          <div class="study-area"><b>🔐 Cryptography</b><span>Keep information private.</span></div>
-          <div class="study-area"><b>🌐 Web Security</b><span>Build safer websites.</span></div>
-          <div class="study-area"><b>🔎 Digital Forensics</b><span>Find and explain evidence.</span></div>
-          <div class="study-area"><b>⚔ Ethical Hacking</b><span>Test systems safely.</span></div>
-          <div class="study-area"><b>☁ Cloud Security</b><span>Protect online services.</span></div>
-        </div><div class="future-line">Tishk University • Cybersecurity Department • Your journey can start here.</div><div class="result-actions" style="padding:0 25px 28px"><button class="primary-btn green" id="departmentReplay">Play another investigation</button></div></section>`;
+          <div class="study-area"><b>🛡 Network Security</b><span>Keep computer networks safe.</span></div>
+          <div class="study-area"><b>🔐 Secret Codes</b><span>Keep information private.</span></div>
+          <div class="study-area"><b>🌐 Web Security</b><span>Make websites safer.</span></div>
+          <div class="study-area"><b>🔎 Digital Clues</b><span>Find clues on computers.</span></div>
+          <div class="study-area"><b>⚔ Safe Hacking</b><span>Find problems before criminals do.</span></div>
+          <div class="study-area"><b>☁ Cloud Security</b><span>Keep online services safe.</span></div>
+        </div><div class="future-line">Tishk University • Cybersecurity Department • You can start here.</div><div class="result-actions" style="padding:0 25px 28px"><button class="primary-btn green" id="departmentReplay">Play again</button></div></section>`;
       $('departmentModal').classList.remove('hidden');
       $('departmentReplay').addEventListener('click', () => { $('departmentModal').classList.add('hidden'); startGame(); });
     }
